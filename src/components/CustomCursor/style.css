@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+    z-index: 0;
+ 
+  }
+  
+  body {
+    height: 100vh;
+    background-color: #1b1b1f;
+    z-index: 0;
+    
+  }
+/*   
+  .cursor-dot {
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  .cursor-outline {
+    width: 30px;
+    height: 30px;
+    border: 2px solid hsla(0, 0%, 100%, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+  }
+   */
+   /* Cursor dot (small dot) */
+   .cursor-dot,
+   .cursor-outline {
+     position: fixed;
+     pointer-events: none; /* Prevents interference with mouse events */
+     transition: transform 0.1s ease-out; /* Smooth transition for movement */
+  
+   }
+   
+   /* Dot Styles */
+   .cursor-dot {
+     width: 8px; /* Adjust as needed */
+     height: 8px; /* Adjust as needed */
+     background: whitesmoke; /* Dot color */
+     border-radius: 50%; /* Make it circular */
+     transform: translate(-50%, -50%); /* Center the dot */
+    
+   }
+   
+   /* Outline Styles */
+   .cursor-outline {
+     width: 30px; /* Adjust as needed */
+     height: 30px; /* Adjust as needed */
+     border: 2px solid whitesmoke; /* Outline color */
+     border-radius: 50%; /* Make it circular */
+ 
+    
+   }
+   .cursor-outline:hover{
+    box-shadow: 
+    0 0 15px rgba(128, 0, 128, 0.7), /* Purple glow */
+    0 0 30px rgba(128, 0, 128, 0.5), /* Larger purple glow */
+    0 0 45px rgba(128, 0, 128, 0.3); /* Faint outer glow */
+  transform: translate(-50%, -50%); /* Center the outline */
+  
+   }
+   a:hover ~ .cursor-outline,
+button:hover ~ .cursor-outline {
+  box-shadow: 
+    0 0 15px rgba(128, 0, 128, 0.7), /* Purple glow */
+    0 0 30px rgba(128, 0, 128, 0.5), /* Larger purple glow */
+    0 0 45px rgba(128, 0, 128, 0.3); /* Faint outer glow */
+   
+}
