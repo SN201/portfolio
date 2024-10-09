@@ -1,6 +1,12 @@
 import React from 'react'
 import { PROJECTS } from '../constants'
 import { motion } from 'framer-motion'
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import { Navigation, Pagination, EffectFade, Autoplay } from 'swiper/modules'; // Removed duplicate Navigation
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 function Projects() {
   return (
@@ -17,8 +23,28 @@ function Projects() {
             initial={{opacity: 0, x:-100}}
             transition={{duration: 1}}
             key={index} className=' flex flex-wrap mb-8 lg:justify-center'>
-                <div  className='w-full lg:w-1/4 mt-3 '>
-                <img src={project.image} alt={project.title}  className='mb-6  rounded hover:scale-[2.7] transition duration-50 ease-in-out   transform' width={150} height={150}/>
+                <div  className='w-full lg:w-1/4  mt-3  mb-3 '>
+                {/* <img src={project.image} alt={project.title}  className='mb-6  rounded hover:scale-[2.7] transition duration-50 ease-in-out   transform' width={150} height={150}/> */}
+                {project.image && (
+   <Swiper
+   slidesPerView={1}
+   pagination={{ type: 'progressbar' }}
+   effect="fade"
+   modules={[EffectFade, Autoplay, Pagination, Navigation]} // Make sure Navigation is included
+   autoplay={{ delay: 1000, disableOnInteraction: false }}
+   navigation // Enable navigation buttons
+   className='lg:-translate-x-12 cursor-none'
+ >
+    {project.image.map((img, imgIndex) => (
+                <SwiperSlide key={imgIndex} >
+                  <div
+                    className='relative w-full  h-[200px] overflow-hidden '
+                    style={{ background: `url(${img}) center, no-repeat`, backgroundSize: "cover" }}
+                  ></div>
+                </SwiperSlide>
+    ))}
+  </Swiper>
+)}
                 </div>
 
             <motion.div

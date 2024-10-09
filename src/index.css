@@ -4,3 +4,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Use Tailwind classes to style the Swiper progress bar */
+.swiper-pagination-progressbar {
+    @apply bg-purple-400; /* Background color of the progress bar track */
+  }
+  
+/* Use @apply with important */
+.swiper-pagination-progressbar-fill {
+    @apply bg-purple-800 !important;  /* Force it to be important */
+  }
